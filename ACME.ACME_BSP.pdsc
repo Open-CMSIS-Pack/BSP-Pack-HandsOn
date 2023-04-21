@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<package schemaVersion="1.7.7" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Open-CMSIS-Pack/Open-CMSIS-Pack-Spec/main/schema/PACK.xsd">
+  <vendor>ACME</vendor>
+  <name>ACME_BSP</name>
+  <description>Board Support Pack for ACMEBoardCM4</description>
+  <url>https://www.acme-website.com/pack/</url>
+  <repository type="git">https://github.com/Open-CMSIS-Pack/BSP-Pack-HandsOn.git</repository>
+  <supportContact></supportContact>
+  <license>LICENSE</license>
+  
+  <releases>
+    <release version="1.0.0" date="2022-04-21">
+      Initial release
+    </release>
+  </releases>
+
+  <keywords>
+    <keyword>ACME</keyword>
+    <keyword>ACME_BSP</keyword>
+    <keyword>ACMEBoardCM4</keyword>
+  </keywords>
+
+  <boards>
+    <board vendor="ACME" name="ACMEBoardCM4" revision="V1" salesContact="sales@acme-corp.com" orderForm="https://www.acme-website.com/ACMEBoardCM4">
+      <description>ACME ACMEBoardCM4 Board Description</description>
+      <memory    name="SRAM-EX" access="rwx" start="0x40000000" size="0x200000"/>
+      <algorithm name="Flash/SRAM-EX.FLM"    start="0x40000000" size="0x200000" style="Keil"/>
+      <image small="Images/ACMEBoardCM4_small.png" large="Images/ACMEBoardCM4_large.png"/>
+      <book category="setup"     name="Docs/ACMEBoardCM4/ACMEBoardCM4_setup.pdf" title="Getting Started"/>
+      <book category="schematic" name="Docs/ACMEBoardCM4/ACMEBoardCM4_schematics.pdf" title="Schematics"/>
+      <book category="manual"    name="Docs/ACMEBoardCM4/ACMEBoardCM4_um.pdf" title="User Manual"/>
+      <book category="other"     name="Docs/ACMEBoardCM4/README.md" title="Guide"/>
+      <mountedDevice    deviceIndex="0" Dvendor="Generic:5" Dname="ACMECM4260"/>
+      <compatibleDevice deviceIndex="0" Dvendor="Generic:5" Dfamily="ACMECM4 Series"/>
+	    <feature    type="PWR"       n="5"         name="USB Powered"/>
+	    <feature    type="DIO"       n="8"/>
+	    <feature    type="SPI"       n="1"/>
+	    <feature    type="LED"       n="6"         name="User LEDs"/>
+	    <feature    type="ArduinoFF" n="1"/>
+      <debugProbe name="CMSIS-DAP" version="2.1" debugLink="swd" connector="USB-C"/>
+	  </board>
+  </boards>
+  
+  <conditions>
+    <condition id="ACMECM4 Series">
+      <description>ARM Cortex M3 device required</description>
+      <require Dfamily="ACMECM4 Series" Dvendor="Generic:5"/>
+    </condition>
+  </conditions>
+
+  <components>
+    <!-- The following code is used for adding a bundle to the PDSC file -->
+    <bundle Cbundle="ACMEBoardCM4" Cclass="Board Support" Cversion="1.0.1">
+      <description>ACMEBoardCM4 custom board support package</description>
+      <doc>Docs/BSP/MyBSP.htm</doc>
+      <component Cgroup="Board Setup" condition="ACMECM4 Series">
+        <description>Custom board setup code</description>
+        <files>
+          <file category="doc"    name="Docs/BSP/Setup.htm"/>
+          <file category="header" name="BSP/Include/setup.h"/>
+          <file category="source" name="BSP/Source/setup.c"/>
+        </files>
+      </component>
+    </bundle>
+    <!-- VIO component for ACMEBoardCM4 -->
+    <component Cclass="CMSIS Driver" Cgroup="VIO" Csub="Board" Cvariant="ACMEBoardCM4" Cversion="1.2.0" Capiversion="0.1.0" condition="ACMECM4 Series">
+      <description>Virtual I/O implementation for ACMEBoardCM4</description>
+      <RTE_Components_h>
+            #define RTE_VIO_BOARD
+            #define RTE_VIO_ACMEBoardCM4
+      </RTE_Components_h>
+      <files>
+        <file category="source" name="Drivers/Platform/vio_ACMEBoardCM4.c"/>
+      </files>
+    </component>
+  </components>
+  
+</package>
