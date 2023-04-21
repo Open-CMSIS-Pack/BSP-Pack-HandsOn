@@ -30,7 +30,7 @@ The CMSIS-Pack technology is available in multiple toolchains. Below is a brief 
 
 - **Reduces support efforts:** as it is easier for customer to use a board in projects. Product Lifecycle Management simplifies updates and notifies users about outdated configuration files and deprecation of products.
 
->To learn more review the session about [Generating CMSIS-Packs for Devices](https://linaro.atlassian.net/wiki/spaces/CMSIS/pages/tbd).
+>To learn more review the session about [Generating CMSIS-Packs for Boards](https://linaro.atlassian.net/wiki/spaces/CMSIS/pages/tbd).
 
 ## Pack Development
 
