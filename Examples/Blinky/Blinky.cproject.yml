@@ -1,0 +1,24 @@
+project:
+
+# it is recommended to list the packs that contain the components in the cproject.yml file.
+  packs:
+    - pack: ARM::V2M_MPS3_SSE_300_BSP@1.2.0   # optional packs can specify a version
+    - pack: Keil::ARM_Compiler                # for retargeting stdout to UART
+
+  groups:
+    - group: Documentation
+      files: 
+        - file: ./README.md
+    - group: Main
+      files:
+        - file: ./main.c
+    - group: App
+      files:
+        - file: ./hello.c
+    - group: Board IO
+      files:
+        - file: ./Board_IO/retarget_stdio.c
+
+  components:
+    - component: CMSIS:CORE                             # short form, vendor selected from available packs
+    - component: Device:Startup

@@ -1,0 +1,22 @@
+solution:
+
+  packs:
+    - pack: ARM::CMSIS
+    - pack: Keil::LPC1700_DFP@2.7.1
+
+  target-types:
+    - type: ACME Board                        # runs on Arm Virtual Hardware
+      board: ACMEBoardCM4
+                                              # add more hardware targets (don't forget to add the required packs)
+
+  build-types:                                # defines toolchain options for 'debug' and 'release'
+    - type: Debug
+      debug: on
+      optimize: none
+
+    - type: Release
+      debug: off
+      optimize: balanced
+
+  projects:                               # list related projects
+    - project: ./Blinky.cproject.yml
