@@ -2,8 +2,10 @@ project:
 
 # it is recommended to list the packs that contain the components in the cproject.yml file.
   packs:
-    - pack: ARM::V2M_MPS3_SSE_300_BSP@1.2.0   # optional packs can specify a version
-    - pack: Keil::ARM_Compiler                # for retargeting stdout to UART
+    - pack: ARM::CMSIS
+    - pack: ARM::CMSIS-FreeRTOS@10.5.1
+    - pack: ACME::ACMECM4_DFP@1.0.0
+    - pack: ACME::ACME_BSP@1.0.0        # optional packs can specify a version
 
   groups:
     - group: Documentation
@@ -14,11 +16,15 @@ project:
         - file: ./main.c
     - group: App
       files:
-        - file: ./hello.c
-    - group: Board IO
-      files:
-        - file: ./Board_IO/retarget_stdio.c
+        - file: ./Blinky.c
 
   components:
-    - component: CMSIS:CORE                             # short form, vendor selected from available packs
+    - component: CMSIS:CORE             # short form, vendor selected from available packs
     - component: Device:Startup
+    - component: CMSIS Driver:VIO:Board&ACMEBoardCM4
+    - component: ARM::CMSIS:RTOS2:FreeRTOS&Cortex-M
+    - component: ARM::RTOS&FreeRTOS:Config&CMSIS RTOS2
+    - component: ARM::RTOS&FreeRTOS:Core&Cortex-M
+    - component: ARM::RTOS&FreeRTOS:Event Groups
+    - component: ARM::RTOS&FreeRTOS:Heap&Heap_4
+    - component: ARM::RTOS&FreeRTOS:Timers

@@ -82,7 +82,7 @@ __NO_RETURN static void thrButton (void *arg) {
 /*---------------------------------------------------------------------------
  * Application main thread
  *---------------------------------------------------------------------------*/
-static void app_main (void *argument) {
+void app_main (void *argument) {
   (void)argument;
 
   tid_thrLED = osThreadNew(thrLED, NULL, NULL);         // Create LED thread
@@ -97,6 +97,7 @@ static void app_main (void *argument) {
 /*---------------------------------------------------------------------------
  * Application initialization
  *---------------------------------------------------------------------------*/
-void app_initialize (void) {
+int32_t app_initialize (void) {
   osThreadNew(app_main, NULL, NULL);
+  return 0;
 }
