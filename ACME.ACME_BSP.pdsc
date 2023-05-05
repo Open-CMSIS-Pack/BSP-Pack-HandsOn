@@ -33,11 +33,11 @@
       <book category="other"     name="Docs/ACMEBoardCM4/README.md" title="Guide"/>
       <mountedDevice    deviceIndex="0" Dvendor="Generic:5" Dname="ACMECM4260"/>
       <compatibleDevice deviceIndex="0" Dvendor="Generic:5" Dfamily="ACMECM4 Series"/>
-	    <feature    type="PWR"       n="5"         name="USB Powered"/>
-	    <feature    type="DIO"       n="8"/>
-	    <feature    type="SPI"       n="1"/>
-	    <feature    type="LED"       n="6"         name="User LEDs"/>
-	    <feature    type="ArduinoFF" n="1"/>
+      <feature    type="PWR"       n="5"         name="USB Powered"/>
+      <feature    type="DIO"       n="8"/>
+      <feature    type="SPI"       n="1"/>
+      <feature    type="LED"       n="6"         name="User LEDs"/>
+      <feature    type="ArduinoFF" n="1"/>
       <debugProbe name="CMSIS-DAP" version="2.1" debugLink="swd" connector="USB-C"/>
 	  </board>
   </boards>
