@@ -71,7 +71,7 @@
             #define RTE_VIO_ACMEBoardCM4
       </RTE_Components_h>
       <files>
-        <file category="source" name="Drivers/Platform/vio_ACMEBoardCM4.c"/>
+        <file category="source" name="Drivers/vio_ACMEBoardCM4.c"/>
       </files>
     </component>
   </components>
