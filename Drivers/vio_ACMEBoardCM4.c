@@ -1,11 +1,12 @@
 /******************************************************************************
  * @file     vio.c
  * @brief    Virtual I/O implementation template
- * @version  V1.0.0
- * @date     23. March 2020
+ * @version  V2.0.0
+ * @date     3. November 2023
  ******************************************************************************/
 /*
- * Copyright (c) 2019-2020 Arm Limited. All rights reserved.
+ * Copyright (c) 2019-2023 Arm Limited (or its affiliates).
+ * All rights reserved.
  *
  * SPDX-License-Identifier: Apache-2.0
  *
@@ -22,12 +23,18 @@
  * limitations under the License.
  */
 
-#include <stdio.h>
+
+/* History:
+ *  Version 2.0.0
+ *    Updated to API 1.0.0
+ *  Version 1.0.0
+ *    Initial release
+ */
+
 #include <string.h>
-#include <stdarg.h>
 #include "cmsis_vio.h"
 
-#include "RTE_Components.h"             // Component selection
+#include "RTE_Components.h"                 // Component selection
 #include CMSIS_device_header
 
 #if !defined CMSIS_VOUT || !defined CMSIS_VIN
@@ -36,12 +43,12 @@
 #endif
 
 // VIO input, output definitions
-#define VIO_VALUE_NUM            3U     // number of values
+#define VIO_VALUE_NUM           3U          // Number of values
 
 // VIO input, output variables
-__USED uint32_t      vioSignalIn;                                       // Memory for incoming signal
-__USED uint32_t      vioSignalOut;                                      // Memory for outgoing signal
-__USED int32_t       vioValue   [VIO_VALUE_NUM];                        // Memory for value used in vioGetValue/vioSetValue
+__USED uint32_t vioSignalIn;                // Memory for incoming signal
+__USED uint32_t vioSignalOut;               // Memory for outgoing signal
+__USED int32_t  vioValue[VIO_VALUE_NUM];    // Memory for value used in vioGetValue/vioSetValue
 
 #if !defined CMSIS_VOUT
 // Add global user types, variables, functions here:
@@ -67,7 +74,7 @@ void vioInit (void) {
   vioSignalIn  = 0U;
   vioSignalOut = 0U;
 
-  memset (vioValue,    0, sizeof(vioValue));
+  memset(vioValue, 0, sizeof(vioValue));
 
 #if !defined CMSIS_VOUT
 // Add user code here:
@@ -110,9 +117,9 @@ uint32_t vioGetSignal (uint32_t mask) {
 //   vioSignalIn = ...;
 #endif
 
-  signal = vioSignalIn;
+  signal = vioSignalIn & mask;
 
-  return (signal & mask);
+  return signal;
 }
 
 // Set value output.

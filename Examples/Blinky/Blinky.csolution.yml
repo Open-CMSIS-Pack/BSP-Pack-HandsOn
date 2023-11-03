@@ -1,4 +1,7 @@
 solution:
+  created-for: CMSIS-Toolbox@2.1.0
+  cdefault:
+  compiler: AC6
 
   target-types:
     - type: ACME Board                  # runs on Arm Virtual Hardware

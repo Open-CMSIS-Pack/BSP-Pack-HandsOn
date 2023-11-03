@@ -10,6 +10,11 @@
   <license>LICENSE</license>
   
   <releases>
+    <release version="1.1.0-dev0">
+      Example projects:
+      - Update VIO to API 1.0.0
+      - Synchronize to CMSIS 6.0.0
+    </release>
     <release version="1.0.0" date="2022-04-21">
       Initial release
     </release>
@@ -64,7 +69,7 @@
       </component>
     </bundle>
     <!-- VIO component for ACMEBoardCM4 -->
-    <component Cclass="CMSIS Driver" Cgroup="VIO" Csub="Board" Cvariant="ACMEBoardCM4" Cversion="1.2.0" Capiversion="0.1.0" condition="ACMECM4 Series">
+    <component Cclass="CMSIS Driver" Cgroup="VIO" Csub="Board" Cvariant="ACMEBoardCM4" Cversion="2.0.0" Capiversion="1.0.0" condition="ACMECM4 Series">
       <description>Virtual I/O implementation for ACMEBoardCM4</description>
       <RTE_Components_h>
             #define RTE_VIO_BOARD

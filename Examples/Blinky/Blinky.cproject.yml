@@ -2,10 +2,10 @@ project:
 
 # it is recommended to list the packs that contain the components in the cproject.yml file.
   packs:
-    - pack: ARM::CMSIS
+    - pack: ARM::CMSIS@>=6.0.0
     - pack: ARM::CMSIS-FreeRTOS@10.5.1
     - pack: ACME::ACMECM4_DFP@1.0.0
-    - pack: ACME::ACME_BSP@1.0.0        # optional packs can specify a version
+    - pack: ACME::ACME_BSP@1.1.0        # optional packs can specify a version
 
   groups:
     - group: Documentation
