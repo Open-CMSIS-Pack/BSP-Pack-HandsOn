@@ -55,3 +55,7 @@ dkms.conf
 output
 build
 Thumbs.db
+Examples/Blinky/*.cbuild-*.yml
+Examples/Blinky/*.cprj
+Examples/Blinky/.clangd
+Examples/Blinky/*.cbuild.yml

@@ -8,9 +8,19 @@
   <repository type="git">https://github.com/Open-CMSIS-Pack/BSP-Pack-HandsOn.git</repository>
   <supportContact></supportContact>
   <license>LICENSE</license>
-  
+  <licenseSets>
+    <licenseSet id="all" default="true" gating="true">
+      <license name="LICENSE" title="Apache 2.0 License"/>
+    </licenseSet>
+  </licenseSets>
+ 
   <releases>
-    <release version="1.0.0" date="2022-04-21">
+    <release version="1.0.1" date="2024-06-10">
+      Updated gen_pack.sh script.
+      Added licenseSets.
+      Added csloution example.
+    </release>
+  <release version="1.0.0" date="2022-04-21">
       Initial release
     </release>
   </releases>
@@ -44,7 +54,7 @@
   
   <conditions>
     <condition id="ACMECM4 Series">
-      <description>ARM Cortex M3 device required</description>
+      <description>ARM Cortex M4 device required</description>
       <require Dfamily="ACMECM4 Series" Dvendor="Generic:5"/>
     </condition>
   </conditions>
@@ -75,5 +85,20 @@
       </files>
     </component>
   </components>
-  
+  <examples>
+    <example name="Blinky" folder="Examples/Blinky" doc="">
+      <description>This is a blinky example.</description>
+      <board name="ACMEBoardCM4" vendor="ACME"/>
+      <project>
+        <environment name="csolution"  folder="./Examples/Blinky" load="./Examples/Blinky/Blinky.csolution.yml"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="Core"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <keyword>ACME</keyword>
+        <keyword>Getting Started</keyword>
+      </attributes>
+
+    </example>
+  </examples>
 </package>
