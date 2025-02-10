@@ -1,18 +1,38 @@
+# A solution is a collection of related projects that share same base configuration.
 solution:
+  created-for: CMSIS-Toolbox@2.6.0
+  cdefault:
 
+  # List of tested compilers that can be selected
+  select-compiler:
+    - compiler: AC6
+    - compiler: CLANG
+    - compiler: GCC
+    - compiler: IAR
+    
+  # List the packs that define the device and/or board.
+  packs:
+    - pack: ARM::CMSIS
+    - pack: ARM::CMSIS-FreeRTOS@10.5.1
+    - pack: ACME::ACMECM4_DFP@>=1.0.0
+    - pack: ACME::ACME_BSP@>=1.0.2
+    
+  # List different hardware targets that are used to deploy the solution.
   target-types:
-    - type: ACME Board                  # runs on Arm Virtual Hardware
+    - type: ACME Board
       board: ACMEBoardCM4
-                                        # add more hardware targets (don't forget to add the required packs)
+      device: Generic:ACMECM4260
 
-  build-types:                          # defines toolchain options for 'debug' and 'release'
+  # List of different build configurations.
+  build-types:
     - type: Debug
       debug: on
-      optimize: none
+      optimize: debug
 
     - type: Release
       debug: off
       optimize: balanced
 
-  projects:                             # list related projects
+  # list related projects
+  projects:
     - project: ./Blinky.cproject.yml

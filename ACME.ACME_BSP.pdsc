@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<package schemaVersion="1.7.7" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Open-CMSIS-Pack/Open-CMSIS-Pack-Spec/main/schema/PACK.xsd">
+<package schemaVersion="1.7.44" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Open-CMSIS-Pack/Open-CMSIS-Pack-Spec/main/schema/PACK.xsd">
   <vendor>ACME</vendor>
   <name>ACME_BSP</name>
-  <description>Board Support Pack for ACMEBoardCM4</description>
+  <description overview="Docs/Overview.md">Board Support Pack for ACMEBoardCM4</description>
   <url>https://www.acme-website.com/pack/</url>
   <repository type="git">https://github.com/Open-CMSIS-Pack/BSP-Pack-HandsOn.git</repository>
   <supportContact></supportContact>
@@ -15,6 +15,9 @@
   </licenseSets>
  
   <releases>
+    <release version="1.0.2" date="2025-02-10">
+      Reduced complexity.
+    </release>
     <release version="1.0.1" date="2024-06-10">
       Updated gen_pack.sh script.
       Added licenseSets.
@@ -60,45 +63,23 @@
   </conditions>
 
   <components>
-    <!-- The following code is used for adding a bundle to the PDSC file -->
-    <bundle Cbundle="ACMEBoardCM4" Cclass="Board Support" Cversion="1.0.1">
-      <description>ACMEBoardCM4 custom board support package</description>
-      <doc>Docs/BSP/MyBSP.htm</doc>
-      <component Cgroup="Board Setup" condition="ACMECM4 Series">
-        <description>Custom board setup code</description>
-        <files>
-          <file category="doc"    name="Docs/BSP/Setup.htm"/>
-          <file category="header" name="BSP/Include/setup.h"/>
-          <file category="source" name="BSP/Source/setup.c"/>
-        </files>
-      </component>
-    </bundle>
     <!-- VIO component for ACMEBoardCM4 -->
     <component Cclass="CMSIS Driver" Cgroup="VIO" Csub="Board" Cvariant="ACMEBoardCM4" Cversion="1.2.0" Capiversion="0.1.0" condition="ACMECM4 Series">
       <description>Virtual I/O implementation for ACMEBoardCM4</description>
-      <RTE_Components_h>
-            #define RTE_VIO_BOARD
-            #define RTE_VIO_ACMEBoardCM4
-      </RTE_Components_h>
       <files>
         <file category="source" name="Drivers/vio_ACMEBoardCM4.c"/>
       </files>
     </component>
   </components>
+
   <examples>
-    <example name="Blinky" folder="Examples/Blinky" doc="">
-      <description>This is a blinky example.</description>
+    <example name="Blinky" folder="Examples/Blinky" doc="README.md">
+      <description>CMSIS-RTOS2 Blinky example with VIO</description>
       <board name="ACMEBoardCM4" vendor="ACME"/>
       <project>
-        <environment name="csolution"  folder="./Examples/Blinky" load="./Examples/Blinky/Blinky.csolution.yml"/>
+        <environment name="csolution"  folder="./Examples/Blinky" load="Blinky.csolution.yml"/>
       </project>
-      <attributes>
-        <component Cclass="CMSIS" Cgroup="Core"/>
-        <component Cclass="Device" Cgroup="Startup"/>
-        <keyword>ACME</keyword>
-        <keyword>Getting Started</keyword>
-      </attributes>
-
     </example>
   </examples>
+
 </package>

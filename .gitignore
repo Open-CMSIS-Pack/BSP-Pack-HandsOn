@@ -59,3 +59,5 @@ Examples/Blinky/*.cbuild-*.yml
 Examples/Blinky/*.cprj
 Examples/Blinky/.clangd
 Examples/Blinky/*.cbuild.yml
+
+.vscode/
