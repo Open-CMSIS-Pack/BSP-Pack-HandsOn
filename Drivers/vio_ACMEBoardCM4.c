@@ -28,9 +28,9 @@ The table below lists the physical I/O mapping of this CMSIS-Driver VIO implemen
 
 | Virtual I/O   | Variable       | Board component | Pin
 |:--------------|:---------------|:----------------|:------
-| vioBUTTON0    | vioSignalIn.0  | USER button     | PC13
-| vioLED0       | vioSignalOut.0 | LED red         | PH6
-| vioLED1       | vioSignalOut.1 | LED green       | PH7
+| vioBUTTON0    | vioSignalIn.0  | USER button     | /todo
+| vioLED0       | vioSignalOut.0 | LED red         | /todo
+| vioLED1       | vioSignalOut.1 | LED green       | /todo
 */
 
 #include <stdio.h>

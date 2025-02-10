@@ -14,8 +14,8 @@ solution:
   packs:
     - pack: ARM::CMSIS
     - pack: ARM::CMSIS-FreeRTOS@10.5.1
-    - pack: ACME::ACMECM4_DFP@>=1.0.0
-    - pack: ACME::ACME_BSP@>=1.0.2
+    - pack: ACME::ACMECM4_DFP@^1.0.0
+    - pack: ACME::ACME_BSP@^1.0.2
     
   # List different hardware targets that are used to deploy the solution.
   target-types:
