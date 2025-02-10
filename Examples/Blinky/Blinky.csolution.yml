@@ -9,19 +9,19 @@ solution:
     - compiler: CLANG
     - compiler: GCC
     - compiler: IAR
-    
+
   # List the packs that define the device and/or board.
   packs:
     - pack: ARM::CMSIS
     - pack: ARM::CMSIS-FreeRTOS@10.5.1
     - pack: ACME::ACMECM4_DFP@^1.0.0
     - pack: ACME::ACME_BSP@^1.0.2
-    
+
   # List different hardware targets that are used to deploy the solution.
   target-types:
-    - type: ACME Board
+    - type: ACME_Board
       board: ACMEBoardCM4
-      device: Generic:ACMECM4260
+      device: ACMECM4260
 
   # List of different build configurations.
   build-types:

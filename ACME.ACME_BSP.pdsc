@@ -64,7 +64,7 @@
 
   <components>
     <!-- VIO component for ACMEBoardCM4 -->
-    <component Cclass="CMSIS Driver" Cgroup="VIO" Csub="Board" Cvariant="ACMEBoardCM4" Cversion="1.2.0" Capiversion="0.1.0" condition="ACMECM4 Series">
+    <component Cclass="CMSIS Driver" Cgroup="VIO" Csub="Board" Cvariant="ACMEBoardCM4" Cversion="1.0.0" Capiversion="1.0.0" condition="ACMECM4 Series">
       <description>Virtual I/O implementation for ACMEBoardCM4</description>
       <files>
         <file category="source" name="Drivers/vio_ACMEBoardCM4.c"/>
