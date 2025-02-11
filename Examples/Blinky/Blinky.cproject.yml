@@ -25,3 +25,4 @@ project:
     - component: ARM::RTOS&FreeRTOS:Event Groups
     - component: ARM::RTOS&FreeRTOS:Heap&Heap_4
     - component: ARM::RTOS&FreeRTOS:Timers
+    - component: ARM::CMSIS:OS Tick:SysTick
