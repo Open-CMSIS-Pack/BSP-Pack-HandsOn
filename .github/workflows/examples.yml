@@ -1,0 +1,69 @@
+name: Build example projects
+on:
+  workflow_dispatch:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  schedule:
+    - cron: '30 22 * * 0'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions: 
+  actions: read
+  security-events: write
+
+jobs:
+  blinky:
+    strategy:
+      fail-fast: false
+      matrix:
+        compiler: [AC6, GCC, CLANG]
+    
+    runs-on: ubuntu-22.04    
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          path: BSP-Pack-HandsOn
+
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          repository: Open-CMSIS-Pack/DFP-Pack-HandsOn
+          path: DFP-Pack-HandsOn
+
+      - name: Cache packs
+        uses: actions/cache@v4
+        with:
+          key: packs-${{ github.run_id }}-${{ matrix.compiler }}
+          restore-keys: |
+              packs-
+          path: /home/runner/.cache/arm/packs
+
+      - name: Activate vcpkg
+        uses: ARM-software/cmsis-actions/vcpkg@v1
+        with:
+          config: './BSP-Pack-HandsOn/Examples/Blinky/vcpkg-configuration.json'
+          cache: "-${{github.job}}-${{ matrix.compiler }}"
+
+      - name: Activate Arm tool license
+        uses: ARM-software/cmsis-actions/armlm@v1
+  
+      - uses: ammaraskar/gcc-problem-matcher@master
+        if: matrix.compiler == 'GCC'
+
+      - name: Register local pack repositories
+        run: |
+          cpackget add DFP-Pack-HandsOn/ACME.ACMECM4_DFP.pdsc
+          cpackget add BSP-Pack-HandsOn/ACME.ACME_BSP.pdsc
+
+      - name: Build
+        working-directory: ./BSP-Pack-HandsOn/Examples/Blinky
+        run: |
+          echo "Building get started example ..."
+          cbuild Blinky.csolution.yml --packs --update-rte --context .Debug+ACME_Board --toolchain ${{ matrix.compiler }}
