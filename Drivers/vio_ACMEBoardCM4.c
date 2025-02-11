@@ -1,5 +1,5 @@
 /******************************************************************************
- * @file     vio.c
+ * @file     vioACMEBoardCM4.c
  * @brief    Virtual I/O implementation template
  * @version  V1.0.0
  * @date     23. March 2020
@@ -21,6 +21,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+/*! \page vio_ACMEBoardCM4 Physical I/O Mapping
+
+The table below lists the physical I/O mapping of this CMSIS-Driver VIO implementation.
+
+| Virtual I/O   | Variable       | Board component | Pin
+|:--------------|:---------------|:----------------|:------
+| vioBUTTON0    | vioSignalIn.0  | USER button     | /todo
+| vioLED0       | vioSignalOut.0 | LED red         | /todo
+| vioLED1       | vioSignalOut.1 | LED green       | /todo
+*/
 
 #include <stdio.h>
 #include <string.h>

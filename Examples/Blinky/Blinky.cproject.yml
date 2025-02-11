@@ -1,12 +1,7 @@
+# A project translates into one executable or library.
 project:
 
-# it is recommended to list the packs that contain the components in the cproject.yml file.
-  packs:
-    - pack: ARM::CMSIS
-    - pack: ARM::CMSIS-FreeRTOS@10.5.1
-    - pack: ACME::ACMECM4_DFP@1.0.0
-    - pack: ACME::ACME_BSP@1.0.0        # optional packs can specify a version
-
+  # List of source groups and files added to a project or a layer.
   groups:
     - group: Documentation
       files: 
@@ -18,8 +13,10 @@ project:
       files:
         - file: ./Blinky.c
 
-  components:
-    - component: CMSIS:CORE             # short form, vendor selected from available packs
+  # List components to use for your application.
+  # A software component is a re-usable unit that may be configurable.
+  components: 
+    - component: CMSIS:CORE
     - component: Device:Startup
     - component: CMSIS Driver:VIO:Board&ACMEBoardCM4
     - component: ARM::CMSIS:RTOS2:FreeRTOS&Cortex-M

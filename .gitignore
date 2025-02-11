@@ -59,3 +59,10 @@ Examples/Blinky/*.cbuild-*.yml
 Examples/Blinky/*.cprj
 Examples/Blinky/.clangd
 Examples/Blinky/*.cbuild.yml
+
+.vscode/
+Examples/Blinky/tmp/*
+Examples/Blinky/out/Blinky/ACME_Board/Debug/compile_commands.json
+Examples/Blinky/RTE/_Debug_ACME_Board/RTE_Components.h
+Examples/Blinky/RTE/Device/ACMECM4260/regions_ACMEBoardCM4.h
+Examples/Blinky/RTE/Device/ACMECM4260/ac6_linker_script.sct.src
