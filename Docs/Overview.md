@@ -3,59 +3,43 @@
 
 This board support pack contains the following:
 
-| Content                      | Description |
-|------------------------------|-------------|
-| ./.github/workflows          | GitHub workflows for building the pack and testing the examples. |
-| ./Doc                        | General documentation. |
-| ./Doc/ACMEBoardCM4           | Schematics and user guides. |
-| ./Drivers                    | [CMSIS-Driver VIO](#drivers). |
-| ./Examples/Blinky            | [Blinky](#examples) example. |
-| ./Flash                      | Flash programming algorithm for on-board SRAM. |
-| ./Images                     | Board photos. |
+- General documentation.
+- Schematics and user guides.
+- Blinky example to test tools and hardware setup.
+- A flash programming algorithm for on-board SRAM.
 
 ## Related packs
 <!-- Todo: Additional CMSIS-Packs that are required for the contents to work. -->
-
-- [ACME.ACMECM4_DFP.1.1.0.pack](https://www.acme-website.com/pack/ACME.ACMECM4_DFP.1.1.0.pack)
-
-## Examples
-<!-- Todo: Description of the example projects provided in the CMSIS-Pack. -->
-
-| Example | Description |
-|---------|-------------|
-| [Blinky](./Examples/Blinky/Blinky.csolution.yml) | Blinky example to test tools and hardware setup. |
-|         |             |
-
-## Layers
-<!-- Todo (if available): Description of the csolution layers provided in the CMSIS-Pack. -->
-
-| Layer   | Description |
-|---------|-------------|
-|         |             |
+```yml
+    - pack: ACME::ACMECM4_DFP@1.1.0      # Device Family Pack
+```
 
 ## Drivers
 <!-- Todo: Description of the HAL/CMSIS-Drivers provided in the CMSIS-Pack. -->
+```yml
+    - component: CMSIS-Driver:VIO             # GPIO Driver for the board
+```
+<!-- Todo: [Optional] add more drivers:
+```yml
+    - component: HAL:Common             # description
+```
+-->
 
-| Drivers                                          | Description |
-|--------------------------------------------------|-------------|
-| [CMSIS-Driver VIO](./Drivers/vio_ACMEBoardCM4.c) | VIO connected to LEDs (X, Y) and USER button (Z) |
-|                                                  |             |
+<!-- Todo: [Optional] Add standardized software layers
+## Layers
+
+```yml
+    - layer:     # description
+```
+-->
 
 ## Usage
 <!-- Todo: Additional usage information. -->
 
-### Configuration
-<!-- Todo: Usage subsection: Description of the configuration options. -->
-
-### Tools or deviations from CMSIS standard
-<!-- Todo: Usage subsection: Description of any required tools and deviations from the CMSIS-Pack standard. -->
-
 ## Links
-<!-- Todo: Useful links with documentation/help/forums. -->
-
-| Link             | Description |
-|------------------|-------------|
-| [Product page]() | Information regarding the board. |
-| [GitHub Repo]()  | Location of the BSP repository. |
-| [Support]()      | How to contact support. |
-| [User forum]()   | Public user forum. |
+<!-- Todo: Useful links with documentation/help/forums.
+- [Product page]()
+- [GitHub Repo]()
+- [Support]() 
+- [User forum]()
+ -->
