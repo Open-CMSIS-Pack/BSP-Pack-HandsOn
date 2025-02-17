@@ -74,7 +74,7 @@ After modifications to the [PDSC file](ACME.ACMECM4_BSP.pdsc) run `packchk`; inc
 Using **Command Prompt**:
 
 ```txt
-packchk ACME.ACMECM4_BSP.pdsc -i %CMSIS_PACK_ROOT%/ARM/CMSIS/5.9.0/ARM.CMSIS.pdsc
+packchk ACME.ACMECM4_BSP.pdsc -i %CMSIS_PACK_ROOT%/ARM/CMSIS/6.1.0/ARM.CMSIS.pdsc
 ```
 
 Using  **Git Bash** console:
