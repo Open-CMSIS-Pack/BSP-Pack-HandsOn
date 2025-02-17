@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <package schemaVersion="1.7.44" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Open-CMSIS-Pack/Open-CMSIS-Pack-Spec/main/schema/PACK.xsd">
+  <!-- Must have - software pack vendor name: -->
   <vendor>ACME</vendor>
+  <!-- Must have - software pack name: -->
   <name>ACME_BSP</name>
+  <!-- Strongly recommended - pack description with Overview.md file: -->
   <description overview="Docs/Overview.md">Board Support Pack for ACMEBoardCM4</description>
+  <!-- Optional - pack download URL (if publicly available): -->
   <url>https://www.acme-website.com/pack/</url>
+  <!-- Optional - Git repo URL (if applicable): -->
   <repository type="git">https://github.com/Open-CMSIS-Pack/BSP-Pack-HandsOn.git</repository>
+  <!-- Strongly recommended - support contact information: -->
   <supportContact></supportContact>
+  <!-- Must have - licensing information (for software BOM): -->
   <license>LICENSE</license>
   <licenseSets>
     <licenseSet id="all" default="true" gating="true">
@@ -14,6 +21,7 @@
     </licenseSet>
   </licenseSets>
  
+  <!-- Must have - pack release information for versioning: -->
   <releases>
     <release version="1.0.2" date="2025-02-10">
       Reduced complexity.
@@ -21,7 +29,7 @@
     <release version="1.0.1" date="2024-06-10">
       Updated gen_pack.sh script.
       Added licenseSets.
-      Added csloution example.
+      Added csolution example.
     </release>
   <release version="1.0.0" date="2022-04-21">
       Initial release
@@ -29,40 +37,56 @@
   </releases>
 
   <keywords>
+    <!-- Optional - keywords for indexing: -->
     <keyword>ACME</keyword>
     <keyword>ACME_BSP</keyword>
     <keyword>ACMEBoardCM4</keyword>
   </keywords>
 
+  <!-- Must have - boards section: -->
   <boards>
+    <!-- Must have - board information: -->
     <board vendor="ACME" name="ACMEBoardCM4" revision="V1" salesContact="sales@acme-corp.com" orderForm="https://www.acme-website.com/ACMEBoardCM4">
+      <!-- Strongly recommended - board description: -->
       <description>ACME ACMEBoardCM4 Board Description</description>
+      <!-- Strongly recommended - definition of on-board memory (if applicable): -->
       <memory    name="SRAM-EX" access="rwx" start="0x40000000" size="0x200000"/>
+      <!-- Strongly recommended - download algorithms for on-board memory: -->
       <algorithm name="Flash/SRAM-EX.FLM"    start="0x40000000" size="0x200000" style="Keil"/>
+      <!-- Strongly recommended - board photos for web sites: -->
       <image small="Images/ACMEBoardCM4_small.png" large="Images/ACMEBoardCM4_large.png"/>
+      <!-- Strongly recommended - board-specific documentation: -->
       <book category="setup"     name="Docs/ACMEBoardCM4/ACMEBoardCM4_setup.pdf" title="Getting Started"/>
       <book category="schematic" name="Docs/ACMEBoardCM4/ACMEBoardCM4_schematics.pdf" title="Schematics"/>
       <book category="manual"    name="Docs/ACMEBoardCM4/ACMEBoardCM4_um.pdf" title="User Manual"/>
       <book category="other"     name="Docs/ACMEBoardCM4/README.md" title="Guide"/>
+      <!-- Must have - on-board device information: -->
       <mountedDevice    deviceIndex="0" Dvendor="Generic:5" Dname="ACMECM4260"/>
+      <!-- Strongly recommended - on-board device compatibility information: -->
       <compatibleDevice deviceIndex="0" Dvendor="Generic:5" Dfamily="ACMECM4 Series"/>
+      <!-- Strongly recommended - board features: -->
       <feature    type="PWR"       n="5"         name="USB Powered"/>
       <feature    type="DIO"       n="8"/>
       <feature    type="SPI"       n="1"/>
       <feature    type="LED"       n="6"         name="User LEDs"/>
       <feature    type="ArduinoFF" n="1"/>
+      <!-- Strongly recommended - on-board debug probe information (if applicable): -->
       <debugProbe name="CMSIS-DAP" version="2.1" debugLink="swd" connector="USB-C"/>
 	  </board>
   </boards>
   
+  <!-- Must have - conditions section: -->
   <conditions>
+    <!-- Must have - condition related to the device family: -->
     <condition id="ACMECM4 Series">
       <description>ARM Cortex M4 device required</description>
       <require Dfamily="ACMECM4 Series" Dvendor="Generic:5"/>
     </condition>
   </conditions>
 
+  <!-- Strongly recommended - components section: -->
   <components>
+    <!-- Strongly recommended - CMSIS-Driver VIO component for Blinky example: -->
     <!-- VIO component for ACMEBoardCM4 -->
     <component Cclass="CMSIS Driver" Cgroup="VIO" Csub="Board" Cvariant="ACMEBoardCM4" Cversion="1.0.0" Capiversion="1.0.0" condition="ACMECM4 Series">
       <description>Virtual I/O implementation for ACMEBoardCM4</description>
@@ -72,7 +96,9 @@
     </component>
   </components>
 
+  <!-- Strongly recommended - examples section: -->
   <examples>
+    <!-- Strongly recommended - Blinky example: -->
     <example name="Blinky" folder="Examples/Blinky" doc="README.md">
       <description>CMSIS-RTOS2 Blinky example with VIO</description>
       <board name="ACMEBoardCM4" vendor="ACME"/>
