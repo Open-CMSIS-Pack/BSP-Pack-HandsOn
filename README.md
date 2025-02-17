@@ -38,8 +38,8 @@ The following section explains how to create a pack.
 
 ### Tool-Environment (Recommended)
 
-- MDK v5.38 with default installation path (C:\Keil_v5\)
-- [CMSIS-Toolbox v1.6.0](https://github.com/Open-CMSIS-Pack/cmsis-toolbox/releases) or higher (update files in C:\Keil_v5\ARM\ctools)
+- MDK v5.41 with default installation path (C:\Keil_v5\)
+- [CMSIS-Toolbox v2.7.0](https://github.com/Open-CMSIS-Pack/cmsis-toolbox/releases) or higher (update files in C:\Keil_v5\ARM\ctools)
 - [VS Code](https://code.visualstudio.com/) with [XML Language Support by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-xml)
 
 ### Steps to Create a Board Support Pack
@@ -80,13 +80,7 @@ packchk ACME.ACMECM4_BSP.pdsc -i %CMSIS_PACK_ROOT%/ARM/CMSIS/5.9.0/ARM.CMSIS.pds
 Using  **Git Bash** console:
 
 ```txt
-packchk ACME.ACMECM4_BSP.pdsc -i $CMSIS_PACK_ROOT/ARM/CMSIS/5.9.0/ARM.CMSIS.pdsc
-```
-
-With CMSIS-Toolbox v1.7.0 the XML schema check is available with packchk, the command may be then extended to:
-
-```txt
-packchk ACME.ACMECM4_BSP.pdsc -i $CMSIS_PACK_ROOT/ARM/CMSIS/5.9.0/ARM.CMSIS.pdsc -s /c/Keil_v5/UV4/PACK.xsd
+packchk ACME.ACMECM4_BSP.pdsc -i $CMSIS_PACK_ROOT/ARM/CMSIS/6.1.0/ARM.CMSIS.pdsc
 ```
 
 The pack can be created locally in the directory `output` using **Git Bash**:
