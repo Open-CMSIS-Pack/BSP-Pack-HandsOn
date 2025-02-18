@@ -27,7 +27,6 @@ jobs:
         working-directory: BSP-Pack-HandsOn
         run: |
           git fetch --tags --force
-
   
       - uses: actions/checkout@v4
         with:
@@ -50,8 +49,9 @@ jobs:
       # If you encounter problems with the following action, please check the documentation at:
       #  https://github.com/Open-CMSIS-Pack/gen-pack-action
       - uses: Open-CMSIS-Pack/gen-pack-action@main
-        with:
+        with:  
+          working-directory: BSP-Pack-HandsOn
           doxygen-version: none
           packchk-version: 1.4.1
-          gen-pack-script: ./BSP-Pack-HandsOn/gen_pack.sh --no-preprocess
+          gen-pack-script: ./gen_pack.sh --no-preprocess
           gen-pack-output: ./output
