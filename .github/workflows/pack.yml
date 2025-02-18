@@ -37,11 +37,15 @@ jobs:
 
       - name: Install vcpkg
         uses: ARM-software/cmsis-actions/setup-vcpkg@v1
+
+      - name: Setup vcpkg environment
+        uses: ARM-software/cmsis-actions/vcpkg@v1
+        with:
+          config: BSP-Pack-HandsOn/.github/pack-vcpkg.json
   
       - name: Register DFP pack
         run: |
-          vcpkg-shell use cmsis-toolbox
-          cpackget add DFP-Pack-HandsOn/ACME.ACME_DFP.pdsc
+          cpackget add DFP-Pack-HandsOn/ACME.ACMECM4_DFP.pdsc
 
       # If you encounter problems with the following action, please check the documentation at:
       #  https://github.com/Open-CMSIS-Pack/gen-pack-action
