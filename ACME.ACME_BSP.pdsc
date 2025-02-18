@@ -79,7 +79,7 @@
       <feature    type="ArduinoFF" n="1"/>
       <!-- Strongly recommended - on-board debug probe information (if applicable): -->
       <debugProbe name="CMSIS-DAP" version="2.1" debugLink="swd" connector="USB-C"/>
-	  </board>
+    </board>
   </boards>
   
   <!-- Must have - conditions section: -->
