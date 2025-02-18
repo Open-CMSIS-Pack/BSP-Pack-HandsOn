@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<package schemaVersion="1.7.44" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Open-CMSIS-Pack/Open-CMSIS-Pack-Spec/main/schema/PACK.xsd">
+<package schemaVersion="1.7.44" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Open-CMSIS-Pack/Open-CMSIS-Pack-Spec/v1.7.44/schema/PACK.xsd">
   <!-- Must have - software pack vendor name: -->
   <vendor>ACME</vendor>
   <!-- Must have - software pack name: -->
@@ -31,7 +31,7 @@
       Added licenseSets.
       Added csolution example.
     </release>
-  <release version="1.0.0" date="2022-04-21">
+    <release version="1.0.0" date="2022-04-21">
       Initial release
     </release>
   </releases>

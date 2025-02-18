@@ -67,20 +67,20 @@ The following section explains how to create a pack.
 
 3. The content of the pack can now be seen in the Manage Component dialog of uVision.
 
-For changing the [PDSC file](ACME.ACMECM4_BSP.pdsc) it is recommended to use VS Code with XML extension, but any editor would work.
+For changing the [PDSC file](ACME.ACME_BSP.pdsc) it is recommended to use VS Code with XML extension, but any editor would work.
 
-After modifications to the [PDSC file](ACME.ACMECM4_BSP.pdsc) run `packchk`; include all packs that are required by your software in the validation:
+After modifications to the [PDSC file](ACME.ACME_BSP.pdsc) run `packchk`; include all packs that are required by your software in the validation:
 
 Using **Command Prompt**:
 
 ```txt
-packchk ACME.ACMECM4_BSP.pdsc -i %CMSIS_PACK_ROOT%/ARM/CMSIS/6.1.0/ARM.CMSIS.pdsc
+packchk ACME.ACME_BSP.pdsc -i ACMECM4_DFP.pdsc -i %CMSIS_PACK_ROOT%/ARM/CMSIS/6.1.0/ARM.CMSIS.pdsc
 ```
 
 Using  **Git Bash** console:
 
 ```txt
-packchk ACME.ACMECM4_BSP.pdsc -i $CMSIS_PACK_ROOT/ARM/CMSIS/6.1.0/ARM.CMSIS.pdsc
+packchk ACME.ACMECM4_BSP.pdsc -i ACMECM4_DFP.pdsc -i $CMSIS_PACK_ROOT/ARM/CMSIS/6.1.0/ARM.CMSIS.pdsc
 ```
 
 The pack can be created locally in the directory `output` using **Git Bash**:
