@@ -43,6 +43,13 @@
     <keyword>ACMEBoardCM4</keyword>
   </keywords>
 
+  <requirements>
+    <!-- Strongly recommended - requirement to DFP (or other packs): -->
+    <packages>
+      <package vendor="ACME" name="ACMECM4_DFP" version="1.0.0-0"/>
+    </packages>
+  </requirements>
+
   <!-- Must have - boards section: -->
   <boards>
     <!-- Must have - board information: -->
