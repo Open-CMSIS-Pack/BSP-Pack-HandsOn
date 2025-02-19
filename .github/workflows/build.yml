@@ -1,0 +1,72 @@
+name: Build Blinky example
+on:
+  workflow_dispatch:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    strategy:
+        fail-fast: false
+
+    steps:
+      - name: Checkout .ci folder
+        uses: actions/checkout@v4
+        with:
+            sparse-checkout: |
+              .ci
+
+      # https://github.com/ARM-software/cmsis-actions
+      - name: Activate vcpkg
+        uses: ARM-software/cmsis-actions/vcpkg@v1
+        with: 
+          config: "./vcpkg-configuration.json"
+
+      # https://github.com/ARM-software/cmsis-actions
+      - name: Activate Arm tool license
+        uses: ARM-software/cmsis-actions/armlm@v1
+
+      - name: Checkout current repository
+        uses: actions/checkout@v4
+        with:
+          path: ./BSP
+
+      - name: Checkout DFP-Pack-HandsOn
+        uses: actions/checkout@v4
+        with:
+            repository: Open-CMSIS-Pack/DFP-Pack-HandsOn
+            path: ./DFP
+
+      - name: Initialize CMSIS pack root folder
+        run: |
+          cpackget init https://www.keil.com/pack/index.pidx
+          cpackget update-index
+
+      - name: Add local CMSIS packs
+        run: |
+          cpackget add ./BSP/ACME.ACME_BSP.pdsc
+          cpackget add ./DFP/ACME.ACMECM4_DFP.pdsc
+
+      - name: Copy Blinky example to CI/Examples/ folder
+        working-directory: ./
+        run: |
+          mkdir -p ./CI/Examples/Blinky
+          cp -rf ./BSP/Examples/Blinky/* ./CI/Examples/Blinky/
+
+      - name: Build Blinky AC6 Release
+        if: always()
+        working-directory: ./CI/Examples/Blinky
+        run: |
+          cbuild ./Blinky.csolution.yml --packs --context Blinky.Release+ACME_Board --toolchain AC6 --rebuild --update-rte
+
+      - name: Upload Artifact of the Blinky AC6 build
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Blinky_Release_AC6
+          path: |
+            ./CI/Examples/Blinky/out/Blinky/Release/Blinky.axf
