@@ -69,4 +69,4 @@ jobs:
         with:
           name: Blinky_Release_AC6
           path: |
-            ./CI/Examples/Blinky/out/Blinky/Release/Blinky.axf
+            ./CI/Examples/Blinky/out/Blinky/ACME_Board/Release/Blinky.axf            
