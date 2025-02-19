@@ -14,8 +14,9 @@ jobs:
         fail-fast: false
         matrix:
           compiler: [ 
-            {name: AC6,  ext: axf},
-            {name: GCC,  ext: elf}
+            {name: AC6,   ext: axf},
+            {name: GCC,   ext: elf},
+            {name: CLANG, ext: elf}
           ]
           build: [ 
             {type: Release},
