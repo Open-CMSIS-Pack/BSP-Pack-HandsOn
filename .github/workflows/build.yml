@@ -81,6 +81,6 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: Blinky_Release_AC6
+          name: Blinky_Release_GCC
           path: |
             ./CI/Examples/Blinky/out/Blinky/ACME_Board/Release/Blinky.elf
