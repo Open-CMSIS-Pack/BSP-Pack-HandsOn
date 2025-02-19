@@ -1,4 +1,4 @@
-name: Build Blinky example
+name: Example Compile Test
 on:
   workflow_dispatch:
   pull_request:
@@ -12,7 +12,16 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
         fail-fast: false
-
+        matrix:
+          compiler: [ 
+            {name: AC6,  ext: axf},
+            {name: GCC,  ext: elf}
+          ]
+          build: [ 
+            {type: Release},
+            {type: Debug}
+          ]
+          
     steps:
       - name: Checkout .ci folder
         uses: actions/checkout@v4
@@ -57,30 +66,16 @@ jobs:
           mkdir -p ./CI/Examples/Blinky
           cp -rf ./BSP/Examples/Blinky/* ./CI/Examples/Blinky/
 
-      - name: Build Blinky AC6 Release
+      - name: Build Blinky ${{ matrix.compiler.name }} ${{ matrix.build.type }}
         if: always()
         working-directory: ./CI/Examples/Blinky
         run: |
-          cbuild ./Blinky.csolution.yml --packs --context Blinky.Release+ACME_Board --toolchain AC6 --rebuild --update-rte
+          cbuild ./Blinky.csolution.yml --packs --context Blinky.${{ matrix.build.type }}+ACME_Board --toolchain ${{ matrix.compiler.name }} --rebuild --update-rte
 
-      - name: Upload Artifact of the Blinky AC6 build
+      - name: Upload Artifact of the Blinky ${{ matrix.compiler.name }} ${{ matrix.build.type }} build
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: Blinky_Release_AC6
+          name: Blinky_${{ matrix.build.type }}_${{ matrix.compiler.name }}
           path: |
-            ./CI/Examples/Blinky/out/Blinky/ACME_Board/Release/Blinky.axf
-
-      - name: Build Blinky GCC Release
-        if: always()
-        working-directory: ./CI/Examples/Blinky
-        run: |
-          cbuild ./Blinky.csolution.yml --packs --context Blinky.Release+ACME_Board --toolchain GCC --rebuild --update-rte
-
-      - name: Upload Artifact of the Blinky AC6 build
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: Blinky_Release_GCC
-          path: |
-            ./CI/Examples/Blinky/out/Blinky/ACME_Board/Release/Blinky.elf
+            ./CI/Examples/Blinky/out/Blinky/ACME_Board/${{ matrix.build.type }}/Blinky.${{ matrix.compiler.ext }}
