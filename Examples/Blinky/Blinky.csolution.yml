@@ -1,6 +1,6 @@
 # A solution is a collection of related projects that share same base configuration.
 solution:
-  created-for: CMSIS-Toolbox@2.7.0
+  created-for: CMSIS-Toolbox@2.6.0
   cdefault:
 
   # List of tested compilers that can be selected
@@ -12,7 +12,7 @@ solution:
 
   # List the packs that define the device and/or board.
   packs:
-    - pack: ARM::CMSIS@6.1.0
+    - pack: ARM::CMSIS
     - pack: ARM::CMSIS-FreeRTOS@^11.1.0
     - pack: ACME::ACMECM4_DFP@^1.0.0
     - pack: ACME::ACME_BSP@^1.0.2
