@@ -69,4 +69,18 @@ jobs:
         with:
           name: Blinky_Release_AC6
           path: |
-            ./CI/Examples/Blinky/out/Blinky/ACME_Board/Release/Blinky.axf            
+            ./CI/Examples/Blinky/out/Blinky/ACME_Board/Release/Blinky.axf
+
+      - name: Build Blinky GCC Release
+        if: always()
+        working-directory: ./CI/Examples/Blinky
+        run: |
+          cbuild ./Blinky.csolution.yml --packs --context Blinky.Release+ACME_Board --toolchain GCC --rebuild --update-rte
+
+      - name: Upload Artifact of the Blinky AC6 build
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Blinky_Release_AC6
+          path: |
+            ./CI/Examples/Blinky/out/Blinky/ACME_Board/Release/Blinky.elf
