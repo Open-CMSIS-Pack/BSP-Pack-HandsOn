@@ -36,3 +36,4 @@ solution:
   # list related projects
   projects:
     - project: ./Blinky.cproject.yml
+  compiler: AC6
