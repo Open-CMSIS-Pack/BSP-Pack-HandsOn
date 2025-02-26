@@ -12,17 +12,7 @@ Content                        | Description
 [`gen_pack.sh`](./gen_pack.sh) | Script that builds the pack; refer to [usage information](https://github.com/Open-CMSIS-Pack/gen-pack#get-started) for configuration details.
 [`.github/workflows/pack.yaml`](./.github/workflows/pack.yaml)  | GitHub workflow that generates the pack on every commit.
 
-## Benefits of Software Pack Delivery
-
-The CMSIS-Pack technology is available in multiple toolchains. Below is a brief history:
-
-- **2008:** CMSIS-Core has been introduced and [CMSIS](https://arm.com/cmsis) has been since then continuously extended.
-- **2012:** CMSIS-Pack has been started to simplify Product Lifecycle Management (PLM) of Keil MDK and improve overall user experience.
-- **2014:** CMSIS-Pack is part of Keil MDK for device support, middleware which resulted in higher adoption and lower support.
-- **2017:** Eclipse version of the CMSIS-Pack system is integrated in Arm DS and IAR toolchains. Sharing packs across toolchains is now possible.
-- **2020:** Discussions with ST and NXP resulted in the [Open-CMSIS-Pack](https://github.com/Open-CMSIS-Pack/) project and the [VS Code](https://marketplace.visualstudio.com/items?itemName=Arm.keil-studio-pack) integration.
-
-### Benefits for a Board Vendor
+## Benefits for a Board Vendor
 
 - **Connection to users:** as board vendor you control distribution to multiple tools and web portals. For the [Arm pack system](https://www.keil.arm.com/packs/) new releases are scanned once per day, making it available to the entire user base. Documentation links in the software pack let you connect with your users.
 
@@ -31,6 +21,14 @@ The CMSIS-Pack technology is available in multiple toolchains. Below is a brief 
 - **Reduces support efforts:** as it is easier for customer to use a board in projects. Product Lifecycle Management simplifies updates and notifies users about outdated configuration files and deprecation of products.
 
 >To learn more review the session about [Generating CMSIS-Packs for Boards](https://linaro.atlassian.net/wiki/spaces/CMSIS/pages/tbd).
+
+### DFP and BSP Hands-On Session
+
+A webinar explains how to use this repository:
+
+[![Webinar recording](./Images/HandsOnWebinar2025.png)](https://linaro.atlassian.net/wiki/spaces/CMSIS/pages/29847093264/Open-CMSIS-Pack+Technical+Meeting+2025-02-18#Meeting-Recording)
+
+The webinar slides can be found [here](https://linaro.atlassian.net/wiki/spaces/CMSIS/pages/29847093264/Open-CMSIS-Pack+Technical+Meeting+2025-02-18#Slides).
 
 ## Pack Development
 
