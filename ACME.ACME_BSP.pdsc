@@ -69,8 +69,6 @@
       <book category="other"     name="Docs/ACMEBoardCM4/README.md" title="Guide"/>
       <!-- Must have - on-board device information: -->
       <mountedDevice    deviceIndex="0" Dvendor="Generic:5" Dname="ACMECM4260"/>
-      <!-- Strongly recommended - on-board device compatibility information: -->
-      <compatibleDevice deviceIndex="0" Dvendor="Generic:5" Dfamily="ACMECM4 Series"/>
       <!-- Strongly recommended - board features: -->
       <feature    type="PWR"       n="5"         name="USB Powered"/>
       <feature    type="DIO"       n="8"/>
