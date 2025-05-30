@@ -1,6 +1,11 @@
 # A project translates into one executable or library.
 project:
 
+  # Project define
+  define:
+    - OS_IDLE_THREAD_NAME: \"Idle\"
+    - OS_TIMER_THREAD_NAME: \"Timer\"
+
   # List of source groups and files added to a project or a layer.
   groups:
     - group: Documentation

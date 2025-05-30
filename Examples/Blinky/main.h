@@ -1,6 +1,7 @@
 /*---------------------------------------------------------------------------
- * Copyright (c) 2020-2021 Arm Limited (or its affiliates).
+ * Copyright (c) 2020-2025 Arm Limited (or its affiliates).
  * All rights reserved.
+ *
  * SPDX-License-Identifier: Apache-2.0
  *
  * Licensed under the Apache License, Version 2.0 (the License); you may
@@ -22,7 +23,6 @@
 #include <stdint.h>
 
 /* Prototypes */
-extern int32_t app_initialize (void);
-extern void    app_main (void *argument);
+extern int app_main(void);
 
 #endif

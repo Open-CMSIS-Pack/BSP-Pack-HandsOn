@@ -72,7 +72,7 @@ jobs:
         if: always()
         working-directory: ./CI/Examples/Blinky
         run: |
-          cbuild ./Blinky.csolution.yml --packs --context Blinky.${{ matrix.build.type }}+ACME_Board --toolchain ${{ matrix.compiler.name }} --rebuild --update-rte
+          cbuild ./Blinky.csolution.yml --packs --context Blinky.${{ matrix.build.type }}+ACME_Board --toolchain ${{ matrix.compiler.name }} --rebuild
 
       - name: Upload Artifact of the Blinky ${{ matrix.compiler.name }} ${{ matrix.build.type }} build
         if: always()
