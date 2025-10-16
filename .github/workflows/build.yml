@@ -34,8 +34,7 @@ jobs:
       - name: Activate vcpkg
         uses: ARM-software/cmsis-actions/vcpkg@v1
         with: 
-          config: "./.ci/vcpkg-configuration.json"
-          cache: -${{ matrix.compiler.name }}-${{ matrix.build.type }}           
+          config: "./.ci/vcpkg-configuration.json"    
 
       # https://github.com/ARM-software/cmsis-actions
       - name: Activate Arm tool license
@@ -81,3 +80,4 @@ jobs:
           name: Blinky_${{ matrix.build.type }}_${{ matrix.compiler.name }}
           path: |
             ./CI/Examples/Blinky/out/Blinky/ACME_Board/${{ matrix.build.type }}/Blinky.${{ matrix.compiler.ext }}
+
