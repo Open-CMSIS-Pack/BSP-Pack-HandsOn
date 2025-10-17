@@ -1,5 +1,6 @@
 /*---------------------------------------------------------------------------
- * Copyright (c) 2021 Arm Limited (or its affiliates). All rights reserved.
+ * Copyright (c) 2021-2025 Arm Limited (or its affiliates).
+ * All rights reserved.
  *
  * SPDX-License-Identifier: Apache-2.0
  *
@@ -25,11 +26,9 @@
 
 int main (void) {
 
-  vioInit();                            // Initialize Virtual I/O
+  vioInit();                            /* Initialize Virtual I/O */
 
-  osKernelInitialize();                 // Initialize CMSIS-RTOS2
-  app_initialize();                     // Initialize application
-  osKernelStart();                      // Start thread execution
+  app_main();                           /* Execute Application main */
 
   for (;;) {}
 }

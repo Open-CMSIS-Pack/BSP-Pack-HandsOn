@@ -7,6 +7,6 @@
       }
     ],
     "requires": {
-      "arm:tools/open-cmsis-pack/cmsis-toolbox": "^2.7.0-0"
+      "arm:tools/open-cmsis-pack/cmsis-toolbox": "^2.9.0"
     }
   }
