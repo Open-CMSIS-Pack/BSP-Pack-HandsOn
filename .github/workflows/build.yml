@@ -35,7 +35,6 @@ jobs:
         uses: ARM-software/cmsis-actions/vcpkg@v1
         with: 
           config: "./.ci/vcpkg-configuration.json"
-          cache: -${{ matrix.compiler.name }}-${{ matrix.build.type }}           
 
       # https://github.com/ARM-software/cmsis-actions
       - name: Activate Arm tool license
