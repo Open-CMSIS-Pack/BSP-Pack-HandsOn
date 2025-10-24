@@ -52,6 +52,6 @@ jobs:
         with:  
           working-directory: BSP-Pack-HandsOn
           doxygen-version: none
-          packchk-version: 1.4.1
+          packchk-version: 1.4.3
           gen-pack-script: ./gen_pack.sh --no-preprocess
           gen-pack-output: ./output
