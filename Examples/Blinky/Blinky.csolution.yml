@@ -17,6 +17,9 @@ solution:
         - -gdwarf-5
       ASM:
         - -gdwarf-5
+    - for-compiler: CLANG
+      Link:
+        - -lsemihost
 
   # List the packs that define the device and/or board.
   packs:
